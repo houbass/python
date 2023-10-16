@@ -22,4 +22,12 @@ model.fit(X,y)
 
 #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
 predictions = model.predict([ [3, 2] ])
-print(predictions)
+#print(predictions)
+
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
