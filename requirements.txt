@@ -1,4 +1,4 @@
 Flask
 Gunicorn
 pandas
-sklearn
+scikit-learn
