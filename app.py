@@ -30,4 +30,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return predictions
+    return "THIS IS MY NEW API"
