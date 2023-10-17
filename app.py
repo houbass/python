@@ -47,13 +47,15 @@ def handle_request():
     #predictions = model.predict([ res ])
     #data = str(predictions)
 
+
+    myList = text.split()
+    res = [eval(i) for i in myList]
     data = "no data"
+    
     if text == "None":
         text = "makato"
     
     else:
-        myList = text.split()
-        res = [eval(i) for i in myList]
         predictions = model.predict([ res ])
         data = str(predictions)
 
