@@ -41,7 +41,7 @@ def handle_request():
 
     myList = input.split()
     res = [eval(i) for i in myList]
-    data = "no data"
+    data = []
     
     if input == "None":
         input = "makato"
@@ -51,11 +51,11 @@ def handle_request():
         predictions = model.predict([ res ])
 
         #NEW
-        value1 = str(predictions[0][0])
-        value2 = str(predictions[0][1])
-        this_prediction = value1 + value2
+        value1 = predictions[0][0]
+        value2 = predictions[0][1]
+        #this_prediction = value1 + value2
     
-        data = this_prediction
+        data = [value1, value2]
 
         #OLD
         #data = str(predictions)
