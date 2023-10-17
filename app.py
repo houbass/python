@@ -37,16 +37,16 @@ def handle_request():
 
 
     
-    text = request.args.get("input")  #request the input
+    text = str(request.args.get("input"))  #request the input
     character_count = len(text)
 
     
     #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
-    predictions = model.predict([ text ])
+    predictions = model.predict([ [3,2] ])
 
     
 
-    data_set = {"input": predictions, "timestamp": time.time(), "character_count": character_count}
+    data_set = {"input": text, "timestamp": time.time(), "character_count": character_count}
     json_dump = json.dumps(data_set)
 
     return json_dump
