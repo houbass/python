@@ -39,8 +39,7 @@ def handle_request():
     
     input = str(request.args.get("input"))  #request the input
 
-    myList = input.split()
-    res = [eval(i) for i in myList]
+    res = [eval(i) for i in input]
     data = []
     
     if input == "None":
