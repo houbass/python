@@ -39,13 +39,15 @@ def handle_request():
     
     input = str(request.args.get("input"))  #request the input
 
-    res = [eval(i) for i in input]
+    res = []
     data = []
     
     if input == "None":
         input = "makato"
     
     else:
+        res = [eval(i) for i in input]
+        
         #making prediction of next chord (position / voicing)
         predictions = model.predict([ res ])
 
