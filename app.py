@@ -50,7 +50,7 @@ def handle_request():
     predictions = model.predict([ [3, 2] ])
     
 
-    data_set = {"data": text, "text": res}
+    data_set = {"data": text, "text": res, "prediction": predictions}
     json_dump = json.dumps(data_set)
 
     return json_dump
