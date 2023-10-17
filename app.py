@@ -40,7 +40,7 @@ def handle_request():
     #text = str(request.args.get("input"))  #request the input
     #character_count = len(text)
 
-    text = "3 2"
+    text = str("3 2")
 
     myList = text.split()
     res = "nope"
