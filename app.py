@@ -47,7 +47,7 @@ def handle_request():
     res = [eval(i) for i in myList]
 
     #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
-    predictions = model.predict([ [3, 2] ])
+    predictions = model.predict([ res ])
     data = str(predictions)
     
 
