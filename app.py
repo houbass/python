@@ -38,7 +38,7 @@ def handle_request():
 
     
     #text = str(request.args.get("input"))  #request the input
-    character_count = len(text)
+    #character_count = len(text)
 
     text = "3 2"
 
@@ -58,7 +58,7 @@ def handle_request():
         data = predictions
     
 
-    data_set = {"data": data, "text": text, "timestamp": time.time(), "character_count": character_count}
+    data_set = {"data": data, "text": text}
     json_dump = json.dumps(data_set)
 
     return json_dump
