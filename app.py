@@ -49,12 +49,16 @@ def handle_request():
     else:
         #making prediction of next chord (position / voicing)
         predictions = model.predict([ res ])
+
+        #NEW
         value1 = predictions[0][0]
         value2 = predictions[0][1]
         this_prediction = [value1, value2]
-        
+
+        data = str(this_prediction)
+
+        #OLD
         #data = str(predictions)
-        data = this_prediction
 
     data_set = {"input": input, "res": res, "prediction": data}
     json_dump = json.dumps(data_set)
