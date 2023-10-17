@@ -40,16 +40,22 @@ def handle_request():
     text = str(request.args.get("input"))  #request the input
     #character_count = len(text)
 
-    text2 = "3 2"
-
-
-    myList = text2.split()
-    res = [eval(i) for i in myList]
-
+    #text2 = "3 2"
+    #myList = text2.split()
+    #res = [eval(i) for i in myList]
     #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
-    predictions = model.predict([ res ])
-    data = str(predictions)
+    #predictions = model.predict([ res ])
+    #data = str(predictions)
+
+    data = "no data"
+    if text == "None":
+        text = "makato"
     
+    else:
+        myList = text.split()
+        res = [eval(i) for i in myList]
+        predictions = model.predict([ res ])
+        data = str(predictions)
 
     data_set = {"data": text, "text": res, "prediction": data}
     json_dump = json.dumps(data_set)
