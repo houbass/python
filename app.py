@@ -33,7 +33,7 @@ import time
 app = Flask(__name__)
 
 @app.route('/', methods = ["GET", "POST"])
-async def handle_request():
+def handle_request():
 
 
     
@@ -48,10 +48,9 @@ async def handle_request():
 
     #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
     predictions = model.predict([ [3, 2] ])
-    data = predictions
     
 
-    data_set = {"data": text, "text": text2}
+    data_set = {"data": text, "text": res}
     json_dump = json.dumps(data_set)
 
     return json_dump
