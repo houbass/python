@@ -1,6 +1,7 @@
 #WEB API LIB
 from flask import Flask
 from flask import request
+from flask_cors import CORS
 import json
 import time
 
@@ -11,7 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 #CREATING FLASK APP
 app = Flask(__name__)
-
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 #MACHINE LEARNING
 #IMPORT DATA
@@ -34,6 +35,7 @@ model.fit(X,y)
 
 #API
 @app.route('/', methods = ["GET", "POST"])
+@cross_origin()
 def handle_request():
     
     input = str(request.args.get("input"))  #request the input
