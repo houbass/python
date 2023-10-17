@@ -37,28 +37,21 @@ def handle_request():
 
 
     
-    #text = str(request.args.get("input"))  #request the input
+    text = str(request.args.get("input"))  #request the input
     #character_count = len(text)
 
-    text = str("3 2")
+    text2 = "3 2"
 
-    myList = text.split()
-    res = "nope"
-    data = "none"
-    
-    if text == "None":
-        text = "makato"
-    
-    else:
-        myList = text.split()
-        res = [eval(i) for i in myList]
 
-        #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
-        predictions = model.predict([ res ])
-        data = predictions
+    myList = text2.split()
+    res = [eval(i) for i in myList]
+
+    #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
+    predictions = model.predict([ res ])
+    data = predictions
     
 
-    data_set = {"data": data, "text": text}
+    data_set = {"data": data, "text": text2}
     json_dump = json.dumps(data_set)
 
     return json_dump
