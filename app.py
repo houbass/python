@@ -48,7 +48,7 @@ def handle_request():
     
     else:
         #making prediction of next chord (position / voicing)
-        predictions = model.predict([ res ])
+        predictions = model.predict( res )
         data = str(predictions)
 
     data_set = {"input": input, "res": res, "prediction": data}
