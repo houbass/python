@@ -48,9 +48,10 @@ def handle_request():
 
     #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
     predictions = model.predict([ [3, 2] ])
+    data = str.(predictions)
     
 
-    data_set = {"data": text, "text": res, "prediction": predictions}
+    data_set = {"data": text, "text": res, "prediction": data}
     json_dump = json.dumps(data_set)
 
     return json_dump
