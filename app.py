@@ -46,17 +46,24 @@ def handle_request():
         input = "makato"
     
     else:
-        res = [eval(i) for i in input]
-        
-        #making prediction of next chord (position / voicing)
-        predictions = model.predict([ res ])
-
-        #NEW
-        value1 = str(predictions[0][0])
-        value2 = str(predictions[0][1])
-        this_prediction = value1 + value2
+        chords = [input]
+        for x in range(3):
+            
+            this_input = chords[x]
+            res = [eval(i) for i in this_input]
+            print(this_input)
     
-        data = this_prediction
+            #making prediction of next chord (position / voicing)
+            predictions = model.predict([ res ])
+    
+            #NEW
+            value1 = str(predictions[0][0])
+            value2 = str(predictions[0][1])
+            this_prediction = value1 + value2
+        
+            chords.append(this_prediction)
+        
+        data = chords
 
         #OLD
         #data = str(predictions)
