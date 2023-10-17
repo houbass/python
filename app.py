@@ -35,7 +35,6 @@ model.fit(X,y)
 
 #API
 @app.route('/', methods = ["GET", "POST"])
-@cross_origin()
 def handle_request():
     
     input = str(request.args.get("input"))  #request the input
