@@ -37,7 +37,7 @@ def handle_request():
 
 
     
-    text = str(request.args.get("input"))  #request the input
+    text = int(request.args.get("input"))  #request the input
     character_count = len(text)
 
     
