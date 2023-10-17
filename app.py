@@ -20,8 +20,8 @@ model = DecisionTreeClassifier()
 #adding datasets to model (input, output)
 model.fit(X,y)
 
-#make a 2 predictions (ask what gendre probably like 21old male, 22old female)
-predictions = model.predict([ [3, 2] ])
+
+
 
 
 #WEB API
@@ -34,10 +34,19 @@ app = Flask(__name__)
 
 @app.route('/', methods = ["GET", "POST"])
 def handle_request():
-    text = str(request.args.get("input"))  #request the input
+
+
+    
+    text = request.args.get("input")  #request the input
     character_count = len(text)
 
-    data_set = {"input": text, "timestamp": time.time(), "character_count": character_count}
+    
+    #make a 2 predictions (ask what gendre probably like 21old male, 22old female)
+    predictions = model.predict([ text ])
+
+    
+
+    data_set = {"input": predictions, "timestamp": time.time(), "character_count": character_count}
     json_dump = json.dumps(data_set)
 
     return json_dump
