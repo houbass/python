@@ -51,11 +51,11 @@ def handle_request():
         predictions = model.predict([ res ])
 
         #NEW
-        value1 = predictions[0][0]
-        value2 = predictions[0][1]
-        this_prediction = [value1, value2]
-
-        data = str(this_prediction)
+        value1 = str(predictions[0][0])
+        value2 = str(predictions[0][1])
+        this_prediction = value1 + value2
+    
+        data = this_prediction
 
         #OLD
         #data = str(predictions)
