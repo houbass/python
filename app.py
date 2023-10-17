@@ -51,7 +51,7 @@ async def handle_request():
     data = predictions
     
 
-    data_set = {"data": data, "text": text2}
+    data_set = {"data": text, "text": text2}
     json_dump = json.dumps(data_set)
 
     return json_dump
